@@ -3,87 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public/style.css">
+
+
     <title>Documeto de estudo</title>
-    <style>
-        .boxTotal{
-            margin: auto;
-            margin-top: 10px;
-            border: 5px solid gray;
-            border-radius: 10px;
-            background-color: orange;
-            display: flex;
-            flex-direction: row;
-            justify-content: start;
-            width: max-content;
-            height: max-content;
-        }
-        #tableNum{
-            display: grid;
-            grid-template-columns: repeat( 3 , 50px);
-            grid-template-rows: repeat(4, 50px);
-            height: max-content;
-            width: max-content;
-            gap: 5px;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            padding-left: 10px;
-        }
-        .bttsOp{
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: max-content;
-            gap: 5px;
-        }
-        .num{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-            border: 1px solid black;
-            cursor: pointer;
-        }
-        .num:hover{
-            background-color: rgba(134, 134, 134, 0.134);
-        }
-        .buttonDelete{
-            cursor: pointer;
-            border-radius: 10px;
-            background-color: white;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-        }
-        .opButton{
-            width: 50px;
-            height: 50px;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            background-color: rgb(103, 103, 103);
-            border-radius: 10px;
-            color: white;
-            cursor: pointer;
-        }
-        .opButton:hover{
-            background-color: rgb(70, 70, 70);
-        }
-        .sectionShow{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            margin: auto;
-            height: 50px;
-            width: 250px;
-            border: 1px solid black;
-            border-radius: 10px;
-        }
-    </style>
 </head>
 <body>
     <section class="sectionShow" id="sectionShow">
@@ -112,6 +35,6 @@
             <div class="opButton" id="bttDiv">/</div>
         </section>
     </section>
-    <script src="scipt.js"></script>
+    <script src="public/script.js"></script>
 </body>
 </html>
