@@ -6,6 +6,8 @@ var somaBtt = document.querySelector("#bttSoma")
 var subBtt = document.querySelector("#bttSubt")
 var multBtt = document.querySelector("#bttMult")
 var divisBtt = document.querySelector("#bttDiv")
+var percentButton = document.querySelector("#percentButton")
+var point = document.querySelector("#point")
 
 //buttuns to select numbers:
 var num1 = document.querySelector("#num1")
@@ -40,13 +42,57 @@ function Delete(){
 }
 deleteBTT.addEventListener("click", Delete)
 
+function Point(op){
+    if(currentInput.slice(-1) == "."){
+        op = ""
+        update()
+    }else{
+        op = "."
+        currentInput += op
+        update()
+    }
+}
+point.addEventListener("click", Point)
+
 
 //funções de adição das operações
+function calcularPorcentagem(expressao) {
+    let indicePorcentagem = expressao.indexOf("%");
+    if (indicePorcentagem === -1 || indicePorcentagem === 0) {
+        return expressao;
+    }
+    let parteAntesPorcentagem = expressao.slice(0, indicePorcentagem);
+
+    try {
+        let resultadoParteAntes = eval(parteAntesPorcentagem);
+        let expressaoCalculada = expressao.replace(parteAntesPorcentagem + "%", resultadoParteAntes);
+        return currentInput = expressaoCalculada;
+    } catch (error) {
+        console.error("Erro ao calcular a porcentagem:", error);
+        return expressao;
+    }
+}
+
+function percent(op){
+    if(!currentInput){
+        op = ""
+        update()
+    }else if(currentInput.slice(-1) == "+" || currentInput.slice(-1) == "-" || currentInput.slice(-1) == "x" || currentInput.slice(-1) == "/" || currentInput.slice(-1) == "%"){
+        op = ""
+        update()
+    }else{
+        op = "%"
+        currentInput += op
+        update()
+    }
+}
+percentButton.addEventListener("click", percent)
+
 function soma(op){
     if(!currentInput){
         op = ""
         update()
-    }else if(currentInput.slice(-1) == "+" || currentInput.slice(-1) == "-" || currentInput.slice(-1) == "x" || currentInput.slice(-1) == "/"){
+    }else if(currentInput.slice(-1) == "+" || currentInput.slice(-1) == "-" || currentInput.slice(-1) == "x" || currentInput.slice(-1) == "/"|| currentInput.slice(-1) == "%"){
         op = ""
         update()
     }else{
@@ -61,7 +107,7 @@ function subt(op){
     if(!currentInput){
         op = ""
         update()
-    }else if(currentInput.slice(-1) == "+" || currentInput.slice(-1) == "-" || currentInput.slice(-1) == "x" || currentInput.slice(-1) == "/"){
+    }else if(currentInput.slice(-1) == "+" || currentInput.slice(-1) == "-" || currentInput.slice(-1) == "x" || currentInput.slice(-1) == "/" || currentInput.slice(-1) == "%"){
         op = ""
         update()
     }else{
@@ -76,7 +122,7 @@ function mult(op){
     if(!currentInput){
         op = ""
         update()
-    }else if(currentInput.slice(-1) == "+" || currentInput.slice(-1) == "-" || currentInput.slice(-1) == "x" || currentInput.slice(-1) == "/"){
+    }else if(currentInput.slice(-1) == "+" || currentInput.slice(-1) == "-" || currentInput.slice(-1) == "x" || currentInput.slice(-1) == "/" || currentInput.slice(-1) == "%"){
         op = ""
         update()
     }else{
@@ -91,7 +137,7 @@ function divis(op){
     if(!currentInput){
         op = ""
         update()
-    }else if(currentInput.slice(-1) == "+" || currentInput.slice(-1) == "-" || currentInput.slice(-1) == "x" || currentInput.slice(-1) == "/"){
+    }else if(currentInput.slice(-1) == "+" || currentInput.slice(-1) == "-" || currentInput.slice(-1) == "x" || currentInput.slice(-1) == "/" || currentInput.slice(-1) == "%"){
         op = ""
         update()
     }else{
@@ -106,19 +152,17 @@ divisBtt.addEventListener("click", divis)
 //função para mostrar redultado da operação:
 function Result(){
     try {
+        calcularPorcentagem()
         var resultado = eval(currentInput);
-
-        // Verifique se o resultado é um número finito
         if (isFinite(resultado)) {
             resultBox.textContent = resultado;
             currentInput = ""
             update()
-        } else {
-            // Se o resultado não for um número finito, mostre uma mensagem de erro
+        }
+        else {
             throw new Error("Erro no cálculo");
         }
     } catch (error) {
-        // Se houver um erro, mostre uma mensagem de erro no display
         resultBox.textContent = "Erro";
     }
 }
@@ -126,75 +170,133 @@ equalButton.addEventListener("click", Result)
 
 
 
-
-
 //funções de adição  dos números
 function appendONE(number){
-    var number = 1
-    currentInput += number
-    update()
+    if(currentInput.slice(-1) == "%"){
+        number = ""
+        currentInput += number
+        update()
+    }else{
+        number = 1
+        currentInput += number
+        update()
+    }
 }
 num1.addEventListener("click", appendONE)
 
 function appendTWO(number){
-    var number = 2
-    currentInput += number
-    update()
+    if(currentInput.slice(-1) == "%"){
+        number = ""
+        currentInput += number
+        update()
+    }else{
+        number = 2
+        currentInput += number
+        update()
+    }
 }
 num2.addEventListener("click", appendTWO)
 
 function appendTHREE(number){
-    var number = 3
-    currentInput += number
-    update()
+    if(currentInput.slice(-1) == "%"){
+        number = ""
+        currentInput += number
+        update()
+    }else{
+        number = 3
+        currentInput += number
+        update()
+    }
 }
 num3.addEventListener("click", appendTHREE)
 
 function appendFOUR(number){
-    var number = 4
-    currentInput += number
-    update()
+    if(currentInput.slice(-1) == "%"){
+        number = ""
+        currentInput += number
+        update()
+    }else{
+        number = 4
+        currentInput += number
+        update()
+    }
 }
 num4.addEventListener("click", appendFOUR)
 
 function appendFIVE(number){
-    var number = 5
-    currentInput += number
-    update()
+    if(currentInput.slice(-1) == "%"){
+        number = ""
+        currentInput += number
+        update()
+    }else{
+        number = 5
+        currentInput += number
+        update()
+    }
 }
 num5.addEventListener("click", appendFIVE)
 
 function appendSIX(number){
-    var number = 6
-    currentInput += number
-    update()
+    if(currentInput.slice(-1) == "%"){
+        number = ""
+        currentInput += number
+        update()
+    }else{
+        number = 6
+        currentInput += number
+        update()
+    }
 }
 num6.addEventListener("click", appendSIX)
 
 function appendSEVEN(number){
-    var number = 7
-    currentInput += number
-    update()
+    if(currentInput.slice(-1) == "%"){
+        number = ""
+        currentInput += number
+        update()
+    }else{
+        number = 7
+        currentInput += number
+        update()
+    }
 }
 num7.addEventListener("click", appendSEVEN)
 
 function appendH(number){
-    var number = 8
-    currentInput += number
-    update()
+    if(currentInput.slice(-1) == "%"){
+        number = ""
+        currentInput += number
+        update()
+    }else{
+        number = 8
+        currentInput += number
+        update()
+    }
 }
 num8.addEventListener("click", appendH)
 
 function appendNINE(number){
-    var number = 9
-    currentInput += number
-    update()
+    if(currentInput.slice(-1) == "%"){
+        number = ""
+        currentInput += number
+        update()
+    }else{
+        number = 9
+        currentInput += number
+        update()
+    }
 }
 num9.addEventListener("click", appendNINE)
 
 function append0(number){
-    var number = 0
-    currentInput += number
-    update()
+    if(currentInput.slice(-1) == "%"){
+        number = ""
+        currentInput += number
+        update()
+    }else{
+        number = 0
+        currentInput += number
+        update()
+    }
 }
 num0.addEventListener("click", append0)
