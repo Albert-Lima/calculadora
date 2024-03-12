@@ -1,4 +1,5 @@
 var sectionShow = document.querySelector("#sectionShow")
+var resultBox = document.querySelector('#resultBox')
 
 //buttons operações:
 var somaBtt = document.querySelector("#bttSoma")
@@ -19,6 +20,7 @@ var num9 = document.querySelector("#num9")
 var num0 = document.querySelector("#num0")
 
 var deleteBTT =  document.querySelector("#bttDelete")
+var equalButton = document.querySelector("#equalButton")
 
 
 //função para somar:
@@ -38,7 +40,7 @@ deleteBTT.addEventListener("click", Delete)
 //funções de adição das operações
 function soma(op){
     if(!currentInput){
-        window.alert("selecione um número primeiro!")
+        op = ""
         update()
     }else if(currentInput.slice(-1) == "+" || currentInput.slice(-1) == "-" || currentInput.slice(-1) == "x" || currentInput.slice(-1) == "/"){
         op = ""
@@ -53,7 +55,7 @@ somaBtt.addEventListener("click", soma)
 
 function subt(op){
     if(!currentInput){
-        window.alert("selecione um número primeiro!")
+        op = ""
         update()
     }else if(currentInput.slice(-1) == "+" || currentInput.slice(-1) == "-" || currentInput.slice(-1) == "x" || currentInput.slice(-1) == "/"){
         op = ""
@@ -68,7 +70,7 @@ subBtt.addEventListener("click", subt)
 
 function mult(op){
     if(!currentInput){
-        window.alert("selecione um número primeiro!")
+        op = ""
         update()
     }else if(currentInput.slice(-1) == "+" || currentInput.slice(-1) == "-" || currentInput.slice(-1) == "x" || currentInput.slice(-1) == "/"){
         op = ""
@@ -83,7 +85,7 @@ multBtt.addEventListener("click", mult)
 
 function divis(op){
     if(!currentInput){
-        window.alert("selecione um número primeiro!")
+        op = ""
         update()
     }else if(currentInput.slice(-1) == "+" || currentInput.slice(-1) == "-" || currentInput.slice(-1) == "x" || currentInput.slice(-1) == "/"){
         op = ""
@@ -95,6 +97,12 @@ function divis(op){
     }
 }
 divisBtt.addEventListener("click", divis)
+
+
+
+
+
+
 //função para mostrar redultado da operação:
 function Result(){
     try {
@@ -102,16 +110,23 @@ function Result(){
 
         // Verifique se o resultado é um número finito
         if (isFinite(resultado)) {
-            resultadoDisplay.textContent = resultado;
+            resultBox.textContent = resultado;
+            currentInput = ""
+            update()
         } else {
             // Se o resultado não for um número finito, mostre uma mensagem de erro
             throw new Error("Erro no cálculo");
         }
     } catch (error) {
         // Se houver um erro, mostre uma mensagem de erro no display
-        resultadoDisplay.textContent = "Erro";
+        resultBox.textContent = "Erro";
     }
 }
+equalButton.addEventListener("click", Result)
+
+
+
+
 
 //funções de adição  dos números
 function appendONE(number){

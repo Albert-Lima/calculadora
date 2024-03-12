@@ -9,8 +9,21 @@
     --fontResult: "Hanuman", serif;
 }
 body{
-    background-image: linear-gradient(to right bottom, rgb(0, 0, 10), rgb(0, 0, 15), rgb(0, 0, 20));
-    height: 100vh;
+    background-color: white;
+}
+.container{
+    width: 300px;
+    height: 400px;
+    padding-bottom: 30px;
+    margin: auto;
+    margin-top: calc(50vh - 200px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(15, 00, 15);
+    border-radius: 40px;
+    border: 2px solid rgb(25, 00, 25);
 }
 .display-box{
     display: flex;
@@ -19,8 +32,6 @@ body{
     justify-content: space-between;
     height: 80px;
     width: 195px;
-    margin-left: calc(50% - 90px);
-    margin-top: calc(50vh - 200px);
     color: white;
 }
 .result-box{
@@ -46,16 +57,6 @@ body{
     color: gray;
     overflow-x: hidden;
 }
-.boxTotal{
-    margin: auto;
-    margin-top: 10px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    width: max-content;
-    height: max-content;
-}
 #tableNum{
     display: grid;
     grid-template-columns: repeat( 4 , 50px);
@@ -65,18 +66,17 @@ body{
     gap: 5px;
     padding-top: 10px;
     padding-bottom: 10px;
-    padding-left: 10px;
 }
 .num{
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 18px;
-    border: 3px solid rgb(44, 44, 44);
-    background-image: linear-gradient(to right bottom, rgb(31, 31, 31), rgb(41, 41, 41), rgb(49, 49, 49));
+    border: 2px solid rgb(55, 55, 55);
+    background-image: linear-gradient(to right bottom, rgb(30, 30, 30), rgb(50, 50, 50), rgb(55, 55, 55));
     color: rgb(177, 177, 177);
     cursor: pointer;
-    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.311);
+    box-shadow: inset 0px 0px 5px 1px rgb(55, 55, 55), 0px 0px 10px 5px rgba(0, 0, 0, 0.159);
     font-family: var(--fontButtons);
 }
 #num0{
@@ -99,12 +99,34 @@ body{
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background-image: linear-gradient( to right bottom, rgb(189, 123, 0), rgb(237, 154, 0), rgb(237, 154, 0));
+    background-image: linear-gradient( to right bottom, rgb(174, 101, 0), rgb(205, 119, 0), rgb(237, 138, 0));
+    box-shadow: inset 0px 0px 5px 1px rgb(237, 138, 0), 0px 50px 10px 5px rgba(0, 0, 0, 0.159);
     border-radius: 18px;
-    border: 3px solid rgb(237, 154, 0);
+    border: 2px solid rgb(237, 138, 0);
     color: white;
     cursor: pointer;
     font-family: var(--fontButtons);
-    font-weight: 500;
-    font-size: 13pt;
+}
+@keyframes botõesClick {
+    0%{
+        scale: 1;
+    }
+    50%{
+        scale: 0.9;
+    }
+    100%{
+        scale: 1;
+    }
+}
+.opButton:active{
+    animation-name: botõesClick;
+    animation-duration: 0.2s;
+    animation-direction: normal;
+    animation-iteration-count: infinite;
+}
+.num:active{
+    animation-name: botõesClick;
+    animation-duration: 0.2s;
+    animation-direction: normal;
+    animation-iteration-count: infinite;
 }
