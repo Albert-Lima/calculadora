@@ -39,11 +39,12 @@ deleteBTT.addEventListener("click", Delete)
 function soma(op){
     if(!currentInput){
         window.alert("selecione um número primeiro!")
-    }
-    if(currentInput.slice(-1) == " + "){
-        window.alert("selecione um número!")
+        update()
+    }else if(currentInput.slice(-1) == "+" || currentInput.slice(-1) == "-" || currentInput.slice(-1) == "x" || currentInput.slice(-1) == "/"){
+        op = ""
+        update()
     }else{
-        var op = " + "
+        op = "+"
         currentInput += op
         update()
     }
@@ -51,26 +52,66 @@ function soma(op){
 somaBtt.addEventListener("click", soma)
 
 function subt(op){
-    var op = " - "
-    currentInput += op
-    update()
+    if(!currentInput){
+        window.alert("selecione um número primeiro!")
+        update()
+    }else if(currentInput.slice(-1) == "+" || currentInput.slice(-1) == "-" || currentInput.slice(-1) == "x" || currentInput.slice(-1) == "/"){
+        op = ""
+        update()
+    }else{
+        op = "-"
+        currentInput += op
+        update()
+    }
 }
 subBtt.addEventListener("click", subt)
 
 function mult(op){
-    var op = " x "
-    currentInput += op
-    update()
+    if(!currentInput){
+        window.alert("selecione um número primeiro!")
+        update()
+    }else if(currentInput.slice(-1) == "+" || currentInput.slice(-1) == "-" || currentInput.slice(-1) == "x" || currentInput.slice(-1) == "/"){
+        op = ""
+        update()
+    }else{
+        op = "x"
+        currentInput += op
+        update()
+    }
 }
 multBtt.addEventListener("click", mult)
 
 function divis(op){
-    var op = " / "
-    currentInput += op
-    update()
+    if(!currentInput){
+        window.alert("selecione um número primeiro!")
+        update()
+    }else if(currentInput.slice(-1) == "+" || currentInput.slice(-1) == "-" || currentInput.slice(-1) == "x" || currentInput.slice(-1) == "/"){
+        op = ""
+        update()
+    }else{
+        op = "/"
+        currentInput += op
+        update()
+    }
 }
 divisBtt.addEventListener("click", divis)
+//função para mostrar redultado da operação:
+function Result(){
+    try {
+        var resultado = eval(currentInput);
 
+        // Verifique se o resultado é um número finito
+        if (isFinite(resultado)) {
+            resultadoDisplay.textContent = resultado;
+        } else {
+            // Se o resultado não for um número finito, mostre uma mensagem de erro
+            throw new Error("Erro no cálculo");
+        }
+    } catch (error) {
+        // Se houver um erro, mostre uma mensagem de erro no display
+        resultadoDisplay.textContent = "Erro";
+    }
+}
 
 //funções de adição  dos números
 function appendONE(number){

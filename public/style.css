@@ -1,9 +1,55 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+/*@import url('https://fonts.googleapis.com/css2?family=Madimi+One&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Hanuman:wght@100;300;400;700;900&family=Madimi+One&display=swap');
+:root{
+    --fontButtons: "Madimi One", sans-serif;
+    --fontResult: "Hanuman", serif;
+}
+body{
+    background-image: linear-gradient(to right bottom, rgb(0, 0, 10), rgb(0, 0, 15), rgb(0, 0, 20));
+    height: 100vh;
+}
+.display-box{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: space-between;
+    height: 80px;
+    width: 195px;
+    margin-left: calc(50% - 90px);
+    margin-top: calc(50vh - 200px);
+    color: white;
+}
+.result-box{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: end;
+    font-family: var(--fontButtons);
+    font-size: 20pt;
+    font-weight: 500;
+}
+.section-show{
+    height: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: end;
+    font-family: var(--fontButtons);
+    font-size: 15pt;
+    color: gray;
+    overflow-x: hidden;
+}
 .boxTotal{
     margin: auto;
     margin-top: 10px;
-    border: 5px solid gray;
     border-radius: 10px;
-    background-color: orange;
     display: flex;
     flex-direction: row;
     justify-content: start;
@@ -12,8 +58,8 @@
 }
 #tableNum{
     display: grid;
-    grid-template-columns: repeat( 3 , 50px);
-    grid-template-rows: repeat(4, 50px);
+    grid-template-columns: repeat( 4 , 50px);
+    grid-template-rows: repeat(5, 50px);
     height: max-content;
     width: max-content;
     gap: 5px;
@@ -21,25 +67,23 @@
     padding-bottom: 10px;
     padding-left: 10px;
 }
-.bttsOp{
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: max-content;
-    gap: 5px;
-}
 .num{
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;
-    border: 1px solid black;
+    border-radius: 18px;
+    border: 3px solid rgb(44, 44, 44);
+    background-image: linear-gradient(to right bottom, rgb(31, 31, 31), rgb(41, 41, 41), rgb(49, 49, 49));
+    color: rgb(177, 177, 177);
     cursor: pointer;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.311);
+    font-family: var(--fontButtons);
 }
-.num:hover{
-    background-color: rgba(134, 134, 134, 0.134);
+#num0{
+    grid-column: 2 span;
+}
+#equalButton{
+    grid-column: 2 span;
 }
 .buttonDelete{
     cursor: pointer;
@@ -51,28 +95,16 @@
     justify-content: center;
 }
 .opButton{
-    width: 50px;
-    height: 50px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background-color: rgb(103, 103, 103);
-    border-radius: 10px;
+    background-image: linear-gradient( to right bottom, rgb(189, 123, 0), rgb(237, 154, 0), rgb(237, 154, 0));
+    border-radius: 18px;
+    border: 3px solid rgb(237, 154, 0);
     color: white;
     cursor: pointer;
-}
-.opButton:hover{
-    background-color: rgb(70, 70, 70);
-}
-.sectionShow{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
-    height: 50px;
-    width: 250px;
-    border: 1px solid black;
-    border-radius: 10px;
+    font-family: var(--fontButtons);
+    font-weight: 500;
+    font-size: 13pt;
 }
