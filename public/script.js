@@ -23,7 +23,7 @@ var deleteBTT =  document.querySelector("#bttDelete")
 var equalButton = document.querySelector("#equalButton")
 
 
-//função para somar:
+//funções básicas:
 var currentInput = ''
 
 function update(){
@@ -31,6 +31,10 @@ function update(){
 }
 
 function Delete(){
+    if(resultBox !== "0"){
+        resultBox.textContent = "0"
+        update()
+    }
     currentInput = currentInput.slice(0, -1)
     update()
 }
@@ -97,10 +101,6 @@ function divis(op){
     }
 }
 divisBtt.addEventListener("click", divis)
-
-
-
-
 
 
 //função para mostrar redultado da operação:
