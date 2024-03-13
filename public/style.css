@@ -59,8 +59,8 @@ body{
 }
 #tableNum{
     display: grid;
-    grid-template-columns: repeat( 4 , 50px);
-    grid-template-rows: repeat(5, 50px);
+    grid-template-columns: repeat( 4 , 70px);
+    grid-template-rows: repeat(5, 70px);
     height: max-content;
     width: max-content;
     gap: 5px;
